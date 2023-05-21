@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply bg-black text-white container;
+  }
   h1 {
     @apply text-[48px] leading;
   }

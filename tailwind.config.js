@@ -35,6 +35,8 @@ export default {
       sans: ['Noto Serif TC', ...defaultTheme.fontFamily.sans],
     },
     colors: {
+      white: '#FFFFFF',
+      black: '#000000',
       'black-100': '#020202',
       'black-80': '#525252',
       'black-60': '#919191',
@@ -43,7 +45,12 @@ export default {
       primary: '#F18724',
       surface: '#F2EFE7',
     },
-    extend: {},
+
+    extend: {
+      backgroundImage: {
+        logo: "url('/src/assets/images/logo.svg')",
+      },
+    },
   },
   plugins: [],
 };
