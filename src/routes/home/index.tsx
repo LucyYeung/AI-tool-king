@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { CommentsSwiper } from './components/comments-swiper';
 
 export const Home = () => {
   return (
@@ -65,7 +66,7 @@ export const Home = () => {
                   {item.icon}
                 </i>
                 <h3 className="mb-5 text-heading03 font-bold">{item.title}</h3>
-                <p className="">{item.description}</p>
+                <p>{item.description}</p>
               </div>
             </Link>
           ))}
@@ -73,10 +74,11 @@ export const Home = () => {
       </section>
       <section className="mt-[120px] md:mt-40">
         <p className="mb-6 text-heading03 font-bold md:mb-20">來自合作夥伴</p>
-        <ul>
+        <ul className="mb-12 md:mb-40">
           <li key={1} className="bg-cover` h-10 w-full bg-enterpriseLine1" />
           <li key={2} className="bg-cover` h-10 w-full bg-enterpriseLine2" />
         </ul>
+        <CommentsSwiper />
       </section>
     </main>
   );
