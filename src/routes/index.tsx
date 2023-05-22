@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '../layout';
 import ErrorPage from './error/error-page';
+import { Home } from './home';
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +11,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <h1>首頁</h1>,
+        element: <Home />,
       },
     ],
   },
