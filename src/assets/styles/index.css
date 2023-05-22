@@ -4,24 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-black text-white container;
-  }
-  h1 {
-    @apply text-[48px] leading;
-  }
-  h2 {
-    @apply text-[40px] leading;
-  }
-  h3 {
-    @apply text-[32px] leading;
-  }
-  h4 {
-    @apply text-[28px] leading;
-  }
-  h5 {
-    @apply text-[24px] leading;
-  }
-  h6 {
-    @apply text-[20px] leading;
+    @apply container bg-black text-white;
   }
 }

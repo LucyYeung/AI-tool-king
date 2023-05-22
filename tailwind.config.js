@@ -22,6 +22,12 @@ export default {
 
     fontSize: {
       DEFAULT: ['16px', 1.5],
+      heading01: ['48px', 1.2],
+      heading02: ['40px', 1.2],
+      heading03: ['32px', 1.2],
+      heading04: ['28px', 1.2],
+      heading05: ['24px', 1.2],
+      heading06: ['20px', 1.2],
       display01: ['150px', 1.2],
       display02: ['120px', 1.2],
       display03: ['80px', 1.2],
@@ -49,6 +55,9 @@ export default {
     extend: {
       backgroundImage: {
         logo: "url('/src/assets/images/logo.svg')",
+        deco: "url('/src/assets/images/deco.png')",
+        enterpriseLine1: "url('/src/assets/images/enterprise-line1.png')",
+        enterpriseLine2: "url('/src/assets/images/enterprise-line2.png')",
       },
     },
   },
