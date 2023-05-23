@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { CommentsSwiper } from './components/comments-swiper';
+import { CommentsSwiper } from '../components/home/comments-swiper';
+import { Functions } from '../components/home/Functions';
 
 export const Home = () => {
   return (
@@ -80,6 +81,7 @@ export const Home = () => {
         </ul>
         <CommentsSwiper />
       </section>
+      <Functions />
     </main>
   );
 };
