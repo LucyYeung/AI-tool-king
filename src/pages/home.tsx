@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CommentsSwiper } from '../components/home/comments-swiper';
-import { Functions } from '../components/home/Functions';
+import { Functions } from '../components/home/function-view';
 
 export const Home = () => {
   return (
