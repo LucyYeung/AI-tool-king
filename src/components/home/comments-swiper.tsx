@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { register } from 'swiper/element';
-
 import { FiveStars } from './five-stars';
 
 register();
