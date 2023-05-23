@@ -6,4 +6,9 @@
   body {
     @apply container bg-black text-white;
   }
+  img,
+  button,
+  a > * {
+    @apply hover:scale-105;
+  }
 }
