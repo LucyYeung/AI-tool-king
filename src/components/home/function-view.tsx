@@ -36,7 +36,7 @@ const TagList = ({ selectedTag, setSelectedTag }: TagListProps) => {
 
 const FunctionCard = () => {
   return (
-    <ul className="grid grid-cols-1 gap-3 md:grid-cols-3">
+    <ul className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-3">
       {[
         {
           title: 'Chatbot Builder',
@@ -80,20 +80,24 @@ const FunctionCard = () => {
           model: '卡卡',
           tag: '聊天',
         },
-      ].map((item) => (
-        <li className="col-span-1 rounded-2xl">
-          <img src="" alt={item.title} className="w-full" />
-          <div>
-            <h3>{item.title}</h3>
+      ].map((item, index) => (
+        <li className="col-span-1 rounded-2xl border border-black-20">
+          <img
+            src={`tool${index + 1}.png`}
+            alt={item.title}
+            className="w-full rounded-t-2xl"
+          />
+          <div className="border-b border-black-20 px-8 py-5">
+            <h3 className='font-bold mb-3'>{item.title}</h3>
             <p>{item.description}</p>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between border-b border-black-20 px-8 py-5">
             <p className="font-bold">AI 模型</p>
             <p>{item.model}</p>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between px-8 py-5">
             <p>{`#${item.tag}`}</p>
-            <i className="material-icons">share</i>
+            <i className="material-icons text-icon-small">share</i>
           </div>
         </li>
       ))}
