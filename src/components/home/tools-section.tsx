@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { register } from 'swiper/element';
 
@@ -11,7 +12,7 @@ type TagListProps = {
 
 const TagList = ({ selectedTag, setSelectedTag }: TagListProps) => {
   return (
-    <div className="gap-6 xl:absolute">
+    <div className="top-4 w-full gap-6 lg:absolute lg:w-auto">
       <ul className="flex overflow-x-scroll">
         {['全部', '聊天', '影像辨識', '翻譯', '行銷', '客服', '生產力'].map(
           (tag) => (
@@ -34,7 +35,7 @@ const TagList = ({ selectedTag, setSelectedTag }: TagListProps) => {
   );
 };
 
-const FunctionCard = () => {
+const ToolCard = () => {
   return (
     <ul className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-3">
       {[
@@ -82,30 +83,34 @@ const FunctionCard = () => {
         },
       ].map((item, index) => (
         <li className="col-span-1 rounded-2xl border border-black-20">
-          <img
-            src={`tool${index + 1}.png`}
-            alt={item.title}
-            className="w-full rounded-t-2xl"
-          />
-          <div className="border-b border-black-20 px-8 py-5">
-            <h3 className='font-bold mb-3'>{item.title}</h3>
-            <p>{item.description}</p>
-          </div>
-          <div className="flex justify-between border-b border-black-20 px-8 py-5">
-            <p className="font-bold">AI 模型</p>
-            <p>{item.model}</p>
-          </div>
-          <div className="flex justify-between px-8 py-5">
-            <p>{`#${item.tag}`}</p>
-            <i className="material-icons text-icon-small">share</i>
-          </div>
+          <Link to="">
+            <div>
+              <img
+                src={`tool${index + 1}.png`}
+                alt={item.title}
+                className="w-full rounded-t-2xl"
+              />
+              <div className="border-b border-black-20 px-8 py-5">
+                <h3 className="mb-3 font-bold">{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+              <div className="flex justify-between border-b border-black-20 px-8 py-5">
+                <p className="font-bold">AI 模型</p>
+                <p>{item.model}</p>
+              </div>
+              <div className="flex justify-between px-8 py-5">
+                <p>{`#${item.tag}`}</p>
+                <i className="material-icons text-icon-small">share</i>
+              </div>
+            </div>
+          </Link>
         </li>
       ))}
     </ul>
   );
 };
 
-export const Functions = () => {
+export const ToolsSection = () => {
   const [selectedTag, setSelectedTag] = useState('全部');
 
   return (
@@ -139,7 +144,7 @@ export const Functions = () => {
           </select>
         </div>
         <TagList selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
-        <FunctionCard />
+        <ToolCard />
       </div>
     </section>
   );

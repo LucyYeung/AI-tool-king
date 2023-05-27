@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { CommentsSwiper } from '../components/home/comments-swiper';
-import { Functions } from '../components/home/function-view';
+import { ToolsSection } from '../components/home/tools-section';
 
 export const Home = () => {
   return (
     <main>
-      <section>
-        <h2 className="text-display02 font-bold">
+      <section className="mt-10">
+        <h2 className="text-heading01 font-bold md:text-display02">
           透過
           <br />
           工具王的
@@ -81,7 +81,18 @@ export const Home = () => {
         </ul>
         <CommentsSwiper />
       </section>
-      <Functions />
+      <ToolsSection />
+      <section className="my-40 grid place-items-center md:mb-[180px]">
+        <h3 className="mb-8 text-center text-heading03 font-bold md:mb-5 md:text-heading01">
+          現在就來建立屬於你的服務吧
+        </h3>
+        <Link to="/">
+          <div className="flex items-center rounded-2xl border border-white px-10 py-5 md:mb-10">
+            <p className="mr-3 text-heading06 font-bold">開始使用</p>
+            <i className="material-icons">north_east</i>
+          </div>
+        </Link>
+      </section>
     </main>
   );
 };
