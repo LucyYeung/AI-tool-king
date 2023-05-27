@@ -6,9 +6,14 @@
   body {
     @apply container bg-black text-white;
   }
-  img,
+
   button,
   a > * {
-    @apply hover:scale-105;
+    @apply hover:scale-[103%];
+  }
+
+  a,
+  img {
+    @apply hover:opacity-80;
   }
 }
