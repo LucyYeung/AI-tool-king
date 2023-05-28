@@ -47,39 +47,37 @@ const ToolCard = () => {
           tag: '聊天',
         },
         {
-          title: 'Chatbot Builder',
-          description:
-            '建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。',
-          model: '卡卡',
-          tag: '聊天',
+          title: 'Image Recognition Platform',
+          description: '專業的圖像識別平台，識別圖像、分類、標記等。',
+          model: '杰杰',
+          tag: '影像辨識',
         },
         {
-          title: 'Chatbot Builder',
+          title: 'Language Translation API',
           description:
-            '建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。',
-          model: '卡卡',
-          tag: '聊天',
+            '專業的語言翻譯 API，實現文本翻譯功能，支援多種格式的文本。',
+          model: '琪琪',
+          tag: '翻譯',
         },
         {
-          title: 'Chatbot Builder',
+          title: 'Sentiment Analysis API',
           description:
-            '建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。',
-          model: '卡卡',
-          tag: '聊天',
+            '自動識別文本中的情感傾向，包括正向、負向和中性等。適用於情感分析、社交媒體監控、市場調查等。',
+          model: '昊昊',
+          tag: '行銷',
         },
         {
-          title: 'Chatbot Builder',
-          description:
-            '建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。',
+          title: 'Fraud Detection Platform',
+          description: '預防詐騙活動，適用於銀行、金融、電商等。',
           model: '卡卡',
-          tag: '聊天',
+          tag: '客服',
         },
         {
-          title: 'Chatbot Builder',
+          title: 'Voice Assistant SDK',
           description:
-            '建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。',
-          model: '卡卡',
-          tag: '聊天',
+            '通過語音控制應用程式、設備，實現多種功能，例如播放音樂、查詢天氣、發送信息等。',
+          model: '杰杰',
+          tag: '生產力',
         },
       ].map((item, index) => (
         <li className="col-span-1 rounded-2xl border border-black-20">
