@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { CommentsSwiper } from '../components/home/comments-swiper';
 import { ToolsSection } from '../components/home/tools-section';
+import Decos from '../components/common/decos';
 
 export const Home = () => {
   return (
@@ -20,16 +21,7 @@ export const Home = () => {
             開始使用
           </h6>
         </Link>
-        <ul className="flex w-full place-content-end md:h-[180px]">
-          {Array(3)
-            .fill(0)
-            .map((_, index) => (
-              <li
-                key={index}
-                className="aspect-square h-auto w-1/3 bg-deco bg-contain md:w-[180px]"
-              />
-            ))}
-        </ul>
+        <Decos style="place-content-end" />
       </section>
       <section className="mt-[120px] md:mt-40">
         <div className="mb-12 grid content-between gap-6 font-bold md:mb-20 md:grid-cols-3">
