@@ -73,11 +73,13 @@ export const CommentsSwiper = () => {
             <p className="mb-5 md:h-[215px]">{item.comment}</p>
 
             <div className="flex items-center gap-4">
-              <img
-                className="h-12 w-12 rounded-full"
-                src={item.avatar + '.png'}
-                alt={item.name}
-              />
+              <div className="overflow-clip rounded-full">
+                <img
+                  className="h-12 w-12 rounded-full"
+                  src={item.avatar + '.png'}
+                  alt={item.name}
+                />
+              </div>
               <div>
                 <p className="mb-1 font-bold">{item.name}</p>
                 <p>{item.company}</p>

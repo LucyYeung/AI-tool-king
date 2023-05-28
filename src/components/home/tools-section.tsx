@@ -84,12 +84,14 @@ const ToolCard = () => {
       ].map((item, index) => (
         <li className="col-span-1 rounded-2xl border border-black-20">
           <Link to="">
-            <div>
-              <img
-                src={`tool${index + 1}.png`}
-                alt={item.title}
-                className="w-full rounded-t-2xl"
-              />
+            <div className="group">
+              <div className="overflow-clip rounded-2xl">
+                <img
+                  src={`tool${index + 1}.png`}
+                  alt={item.title}
+                  className="w-full rounded-t-2xl duration-700 group-hover:scale-105 group-hover:transform"
+                />
+              </div>
               <div className="border-b border-black-20 px-8 py-5">
                 <h3 className="mb-3 font-bold">{item.title}</h3>
                 <p>{item.description}</p>
