@@ -22,7 +22,7 @@ export default function Footer() {
       <hr />
       <div className="flex flex-wrap justify-between py-8 font-bold">
         <p className="md:mr-[100px]">AI工具王 © 2023</p>
-        <ul className="order-1 flex w-full gap-5 md:order-none md:w-auto">
+        <ul className="order-1 mt-9 flex w-full gap-5 md:order-none md:mt-0 md:w-auto">
           <li>
             <Link to="">Facebook</Link>
           </li>
