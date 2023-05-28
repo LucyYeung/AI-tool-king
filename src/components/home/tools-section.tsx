@@ -113,7 +113,10 @@ const ToolCard = () => {
 };
 
 export const ToolsSection = () => {
-  const [selectedTag, setSelectedTag] = useState('全部');
+  const [sort, setSort] = useState(0);
+  const [page, setPage] = useState(1);
+  const [type, setType] = useState('全部');
+  const [search, setSearch] = useState('');
 
   return (
     <section className="mt-[120px] grid grid-cols-1 rounded-2xl bg-white px-3 py-20 text-black md:mt-40">
@@ -125,9 +128,11 @@ export const ToolsSection = () => {
         <input
           className="h-full w-full bg-black-20 outline-none"
           placeholder="輸入關鍵字搜尋"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <div className="relative grid w-full grid-cols-1 place-items-center">
+      <div className="relative mb-8 grid w-full grid-cols-1 place-items-center md:mb-10">
         <div className="col-span-1 flex w-full justify-between">
           <button
             type="button"
@@ -141,13 +146,39 @@ export const ToolsSection = () => {
             id="select"
             className="rounded-2xl border border-black-20 px-10 py-5"
           >
-            <option value="由新到舊">由新到舊</option>
-            <option value="由舊到新">由舊到新</option>
+            {['由新到舊', '由舊到新'].map((option, index) => (
+              <option
+                value="由新到舊"
+                selected={index == sort}
+                onChange={() => setSort(index)}
+              >
+                {option}
+              </option>
+            ))}
           </select>
         </div>
-        <TagList selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
+        <TagList selectedTag={type} setSelectedTag={setType} />
         <ToolCard />
       </div>
+      <ul className="ml-auto flex gap-1">
+        {Array(6)
+          .fill(0)
+          .map((_, index) => (
+            <li>
+              <button
+                type="button"
+                className={`h-12 w-12 ${
+                  page === index + 1
+                    ? 'bg-black text-white'
+                    : 'bg-white text-black'
+                } rounded-2xl`}
+                onClick={() => setPage(index + 1)}
+              >
+                {index + 1}
+              </button>
+            </li>
+          ))}{' '}
+      </ul>
     </section>
   );
 };
