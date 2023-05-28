@@ -32,7 +32,7 @@ export const Home = () => {
             包括圖像識別、自然語言處理和機器翻譯等，讓您更快、更準確地做出決策。
           </h2>
         </div>
-        <div className="mb-[120px] grid gap-x-6 gap-y-3 md:mb-[106px] md:grid-cols-3">
+        <ul className="mb-[120px] grid gap-x-6 gap-y-3 md:mb-[106px] md:grid-cols-3">
           {[
             {
               title: '快速',
@@ -53,17 +53,18 @@ export const Home = () => {
                 '我們的服務支持多種擴充選項，可以滿足您的不斷增長的 AI 需求。',
             },
           ].map((item, index) => (
-            <Link key={index} to="/">
-              <div className="min-h-full rounded-2xl border border-black-80 px-5 py-10 hover:ring-1">
-                <i className="material-icons col-span-1 mb-5 block text-icon-large">
-                  {item.icon}
-                </i>
-                <h3 className="mb-5 text-heading03 font-bold">{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            </Link>
+            <li
+              key={index}
+              className="min-h-full rounded-2xl border border-black-80 px-5 py-10 hover:ring-1"
+            >
+              <i className="material-icons col-span-1 mb-5 block text-icon-large">
+                {item.icon}
+              </i>
+              <h3 className="mb-5 text-heading03 font-bold">{item.title}</h3>
+              <p>{item.description}</p>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
       <section className="mt-[120px] md:mt-40">
         <p className="mb-6 text-heading03 font-bold md:mb-20">來自合作夥伴</p>

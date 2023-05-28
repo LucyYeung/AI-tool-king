@@ -80,7 +80,10 @@ const ToolCard = () => {
           tag: '生產力',
         },
       ].map((item, index) => (
-        <li className="col-span-1 rounded-2xl border border-black-20">
+        <li
+          key={index}
+          className="col-span-1 rounded-2xl border border-black-20"
+        >
           <Link to="">
             <div className="group">
               <div className="overflow-clip rounded-2xl">
@@ -143,13 +146,11 @@ export const ToolsSection = () => {
             name="select"
             id="select"
             className="rounded-2xl border border-black-20 px-10 py-5"
+            value={sort == 0 ? '由新到舊' : '由舊到新'}
+            onChange={(e) => setSort(e.target.value === '由新到舊' ? 0 : 1)}
           >
-            {['由新到舊', '由舊到新'].map((option, index) => (
-              <option
-                value="由新到舊"
-                selected={index == sort}
-                onChange={() => setSort(index)}
-              >
+            {['由新到舊', '由舊到新'].map((option) => (
+              <option key={option} value="由新到舊">
                 {option}
               </option>
             ))}
@@ -162,7 +163,7 @@ export const ToolsSection = () => {
         {Array(6)
           .fill(0)
           .map((_, index) => (
-            <li>
+            <li key={index}>
               <button
                 type="button"
                 className={`h-12 w-12 ${

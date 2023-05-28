@@ -66,8 +66,8 @@ export const CommentsSwiper = () => {
             '我們銀行一直在尋找能夠幫助我們提高風險控制和客戶服務的解決方案，而 AI工具王 提供的 AI 模型租賃服務正好滿足了我們的需求。我們使用 AI工具王 的模型進行客戶信用評估和詐騙檢測等任務，這些模型非常準確，能夠幫助我們更好地控制風險，提高客戶滿意度。非常感謝 AI工具王 團隊的支持！',
           avatar: 'avatar3',
         },
-      ].map((item) => (
-        <swiper-slide>
+      ].map((item, index) => (
+        <swiper-slide key={index}>
           <div className="rounded-2xl bg-white bg-opacity-[8%] p-5">
             <FiveStars />
             <p className="mb-5 md:h-[215px]">{item.comment}</p>
