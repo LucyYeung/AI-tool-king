@@ -6,9 +6,8 @@
   body {
     @apply container bg-black text-white;
   }
-  img,
-  button,
-  a > * {
-    @apply hover:scale-105;
+
+  img {
+    @apply transform duration-700 hover:scale-110;
   }
 }

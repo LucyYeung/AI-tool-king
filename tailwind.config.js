@@ -59,6 +59,14 @@ export default {
         enterpriseLine1: "url('/src/assets/images/enterprise-line1.png')",
         enterpriseLine2: "url('/src/assets/images/enterprise-line2.png')",
       },
+      keyframes: {
+        grow: {
+          '0%': { transform: 'translateY(100%)' },
+          '50%': { transform: 'translateY(0)' },
+          '70%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-200%)' },
+        },
+      },
     },
   },
   plugins: [],

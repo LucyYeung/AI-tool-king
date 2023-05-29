@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { CommentsSwiper } from '../components/home/comments-swiper';
-import { Functions } from '../components/home/function-view';
+import { ToolsSection } from '../components/home/tools-section';
+import Decos from '../components/common/decos';
 
 export const Home = () => {
   return (
     <main>
-      <section>
-        <h2 className="text-display02 font-bold">
+      <section className="mt-10">
+        <h2 className="text-heading01 font-bold md:text-display02">
           透過
           <br />
           工具王的
@@ -20,16 +21,7 @@ export const Home = () => {
             開始使用
           </h6>
         </Link>
-        <ul className="flex w-full place-content-end md:h-[180px]">
-          {Array(3)
-            .fill(0)
-            .map((_, index) => (
-              <li
-                key={index}
-                className="aspect-square h-auto w-1/3 bg-deco bg-contain md:w-[180px]"
-              />
-            ))}
-        </ul>
+        <Decos style="place-content-end" />
       </section>
       <section className="mt-[120px] md:mt-40">
         <div className="mb-12 grid content-between gap-6 font-bold md:mb-20 md:grid-cols-3">
@@ -40,7 +32,7 @@ export const Home = () => {
             包括圖像識別、自然語言處理和機器翻譯等，讓您更快、更準確地做出決策。
           </h2>
         </div>
-        <div className="mb-[120px] grid gap-x-6 gap-y-3 md:mb-[106px] md:grid-cols-3">
+        <ul className="mb-[120px] grid gap-x-6 gap-y-3 md:mb-[106px] md:grid-cols-3">
           {[
             {
               title: '快速',
@@ -61,17 +53,18 @@ export const Home = () => {
                 '我們的服務支持多種擴充選項，可以滿足您的不斷增長的 AI 需求。',
             },
           ].map((item, index) => (
-            <Link key={index} to="/">
-              <div className="min-h-full rounded-2xl border border-black-80 px-5 py-10 hover:ring-1">
-                <i className="material-icons col-span-1 mb-5 block text-icon-large">
-                  {item.icon}
-                </i>
-                <h3 className="mb-5 text-heading03 font-bold">{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            </Link>
+            <li
+              key={index}
+              className="min-h-full rounded-2xl border border-black-80 px-5 py-10 hover:ring-1"
+            >
+              <i className="material-icons col-span-1 mb-5 block text-icon-large">
+                {item.icon}
+              </i>
+              <h3 className="mb-5 text-heading03 font-bold">{item.title}</h3>
+              <p>{item.description}</p>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
       <section className="mt-[120px] md:mt-40">
         <p className="mb-6 text-heading03 font-bold md:mb-20">來自合作夥伴</p>
@@ -81,7 +74,18 @@ export const Home = () => {
         </ul>
         <CommentsSwiper />
       </section>
-      <Functions />
+      <ToolsSection />
+      <section className="my-40 grid place-items-center md:mb-[180px]">
+        <h3 className="mb-8 text-center text-heading03 font-bold md:mb-5 md:text-heading01">
+          現在就來建立屬於你的服務吧
+        </h3>
+        <Link to="/">
+          <div className="flex items-center rounded-2xl border border-white px-10 py-5 md:mb-10">
+            <p className="mr-3 text-heading06 font-bold">開始使用</p>
+            <i className="material-icons">north_east</i>
+          </div>
+        </Link>
+      </section>
     </main>
   );
 };
