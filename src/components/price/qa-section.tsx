@@ -45,7 +45,9 @@ export default function QASection() {
                 }
               >
                 <p className="flex gap-5">
-                  <i className="material-icons text-icon-medium">add</i>
+                  <i className="material-icons text-icon-medium">
+                    {index === selectedIndex ? 'remove' : 'add'}
+                  </i>
                   <span className="text-heading06 font-bold">{title}</span>
                 </p>
                 {selectedIndex === index && (
