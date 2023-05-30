@@ -11,3 +11,12 @@
     @apply transform duration-700 hover:scale-110;
   }
 }
+
+@layer utilities {
+  .before-mask {
+    @apply top-0 before:absolute before:left-0 before:z-10 before:h-10 before:w-[196px] before:content-mask;
+  }
+  .before-mask {
+    @apply top-0 after:absolute after:right-0 after:z-10 after:h-10 after:w-[196px] after:rotate-180 after:transform after:content-mask;
+  }
+}

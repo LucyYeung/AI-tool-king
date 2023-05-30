@@ -5,7 +5,7 @@ import Decos from '../components/common/decos';
 
 export const Home = () => {
   return (
-    <main>
+    <main className="mt-20">
       <section className="mt-10">
         <h2 className="text-heading01 font-bold md:text-display02">
           透過
@@ -68,10 +68,35 @@ export const Home = () => {
       </section>
       <section className="mt-[120px] md:mt-40">
         <p className="mb-6 text-heading03 font-bold md:mb-20">來自合作夥伴</p>
-        <ul className="mb-12 md:mb-40">
-          <li key={1} className="bg-cover` h-10 w-full bg-enterpriseLine1" />
-          <li key={2} className="bg-cover` h-10 w-full bg-enterpriseLine2" />
-        </ul>
+        <div className="mb-12 grid gap-5 md:mb-40">
+          {Array(2)
+            .fill(0)
+            .map((_, row) => (
+              <ul
+                className={`before-mask after-mask group left-0 top-1/2 flex flex-row gap-x-6 overflow-x-scroll scrollbar-hide ${
+                  row === 0 ? 'px-[118px]' : ''
+                }`}
+              >
+                {[
+                  Array(6)
+                    .fill(0)
+                    .map((_, index) => {
+                      const n = row * 6 + index + 1;
+                      return (
+                        <li key={n} className="">
+                          <img
+                            src={`enterprise${n}.png`}
+                            alt={`enterprise${n}`}
+                            className="max-h-10 max-w-none object-contain"
+                          />
+                        </li>
+                      );
+                    }),
+                ]}
+              </ul>
+            ))}
+        </div>
+
         <CommentsSwiper />
       </section>
       <ToolsSection />
