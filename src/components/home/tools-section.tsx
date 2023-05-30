@@ -12,8 +12,8 @@ type TagListProps = {
 
 const TagList = ({ selectedTag, setSelectedTag }: TagListProps) => {
   return (
-    <div className="top-4 w-full gap-6 lg:absolute lg:w-auto">
-      <ul className="flex overflow-x-scroll">
+    <div className="order-2 mt-4 w-full gap-6 lg:order-none lg:mt-0 lg:w-auto">
+      <ul className="flex overflow-x-scroll scrollbar-hide">
         {['全部', '聊天', '影像辨識', '翻譯', '行銷', '客服', '生產力'].map(
           (tag) => (
             <li key={tag} className="whitespace-nowrap">
@@ -133,8 +133,8 @@ export const ToolsSection = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <div className="relative mb-8 grid w-full grid-cols-1 place-items-center md:mb-10">
-        <div className="col-span-1 flex w-full justify-between">
+      <div className="mb-8 grid w-full grid-cols-1 place-items-center md:mb-10">
+        <div className="col-span-1 flex w-full flex-wrap items-center justify-between">
           <button
             type="button"
             className="flex gap-3 rounded-2xl border border-black-20 px-10 py-5"
@@ -142,6 +142,7 @@ export const ToolsSection = () => {
             <span className="">篩選</span>
             <i className="material-icons text-icon-medium">filter_alt</i>
           </button>
+          <TagList selectedTag={type} setSelectedTag={setType} />
           <select
             name="select"
             id="select"
@@ -156,7 +157,6 @@ export const ToolsSection = () => {
             ))}
           </select>
         </div>
-        <TagList selectedTag={type} setSelectedTag={setType} />
         <ToolCard />
       </div>
       <ul className="ml-auto flex gap-1">
