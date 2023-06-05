@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { register } from 'swiper/element';
+import { AIWorks, Work } from '../../types/work';
 
 register();
 
@@ -12,97 +14,62 @@ type TagListProps = {
 
 const TagList = ({ selectedTag, setSelectedTag }: TagListProps) => {
   return (
-    <div className="order-2 mt-4 w-full gap-6 lg:order-none lg:mt-0 lg:w-auto">
+    <div className="order-2 mt-4 w-full gap-6 xl:order-none xl:mt-0 xl:w-auto">
       <ul className="flex overflow-x-scroll scrollbar-hide">
-        {['全部', '聊天', '影像辨識', '翻譯', '行銷', '客服', '生產力'].map(
-          (tag) => (
-            <li key={tag} className="whitespace-nowrap">
-              <button
-                onClick={() => setSelectedTag(tag)}
-                className={`rounded-2xl px-4 py-2 ${
-                  tag === selectedTag
-                    ? 'bg-black-20 text-black'
-                    : 'bg-none text-black-60'
-                }`}
-              >
-                {tag}
-              </button>
-            </li>
-          )
-        )}
+        {[
+          '全部',
+          '問答服務',
+          '虛擬客服',
+          '生活應用',
+          '程式知識',
+          '翻譯助手',
+          '行銷文案',
+        ].map((tag) => (
+          <li key={tag} className="whitespace-nowrap">
+            <button
+              onClick={() => setSelectedTag(tag)}
+              className={`rounded-2xl px-4 py-2 ${
+                tag === selectedTag
+                  ? 'bg-black-20 text-black'
+                  : 'bg-none text-black-60'
+              }`}
+            >
+              {tag}
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
 
-const ToolCard = () => {
+const ToolCards = ({ data }: { data: Work[] }) => {
   return (
-    <ul className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-3">
-      {[
-        {
-          title: 'Chatbot Builder',
-          description:
-            '建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。',
-          model: '卡卡',
-          tag: '聊天',
-        },
-        {
-          title: 'Image Recognition Platform',
-          description: '專業的圖像識別平台，識別圖像、分類、標記等。',
-          model: '杰杰',
-          tag: '影像辨識',
-        },
-        {
-          title: 'Language Translation API',
-          description:
-            '專業的語言翻譯 API，實現文本翻譯功能，支援多種格式的文本。',
-          model: '琪琪',
-          tag: '翻譯',
-        },
-        {
-          title: 'Sentiment Analysis API',
-          description:
-            '自動識別文本中的情感傾向，包括正向、負向和中性等。適用於情感分析、社交媒體監控、市場調查等。',
-          model: '昊昊',
-          tag: '行銷',
-        },
-        {
-          title: 'Fraud Detection Platform',
-          description: '預防詐騙活動，適用於銀行、金融、電商等。',
-          model: '卡卡',
-          tag: '客服',
-        },
-        {
-          title: 'Voice Assistant SDK',
-          description:
-            '通過語音控制應用程式、設備，實現多種功能，例如播放音樂、查詢天氣、發送信息等。',
-          model: '杰杰',
-          tag: '生產力',
-        },
-      ].map((item, index) => (
+    <ul className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+      {data.map((item, index) => (
         <li
           key={index}
           className="col-span-1 rounded-2xl border border-black-20"
         >
-          <Link to="">
+          <Link to={item.link}>
             <div className="group">
               <div className="overflow-clip rounded-2xl">
                 <img
-                  src={`tool${index + 1}.png`}
+                  src={item.imageUrl}
                   alt={item.title}
                   className="w-full rounded-t-2xl duration-700 group-hover:scale-105 group-hover:transform"
                 />
               </div>
               <div className="border-b border-black-20 px-8 py-5">
                 <h3 className="mb-3 font-bold">{item.title}</h3>
-                <p>{item.description}</p>
+                <p className="h-[72px]">{item.description}</p>
               </div>
               <div className="flex justify-between border-b border-black-20 px-8 py-5">
                 <p className="font-bold">AI 模型</p>
                 <p>{item.model}</p>
               </div>
               <div className="flex justify-between px-8 py-5">
-                <p>{`#${item.tag}`}</p>
+                <p>{`#${item.type}`}</p>
                 <i className="material-icons text-icon-small">share</i>
               </div>
             </div>
@@ -118,6 +85,27 @@ export const ToolsSection = () => {
   const [page, setPage] = useState(1);
   const [type, setType] = useState('全部');
   const [search, setSearch] = useState('');
+  const [aiWorks, setAIWorks] = useState<AIWorks | null>(null);
+
+  const apiPath = 'https://2023-engineer-camp.zeabur.app/api/v1/works';
+  const getTools = useCallback(async () => {
+    try {
+      const { ai_works } = (
+        await axios.get(
+          ` ${apiPath}?sort=${sort}&page=${page}&${
+            type !== '全部' ? `type=${type}&` : ''
+          }${search ? `search=${search}` : ''}`
+        )
+      ).data;
+      setAIWorks(ai_works);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [sort, page, type, search]);
+
+  useEffect(() => {
+    getTools();
+  }, [getTools]);
 
   return (
     <section className="mt-[120px] grid grid-cols-1 rounded-2xl bg-white px-3 py-20 text-black md:mt-40">
@@ -151,16 +139,16 @@ export const ToolsSection = () => {
             onChange={(e) => setSort(e.target.value === '由新到舊' ? 0 : 1)}
           >
             {['由新到舊', '由舊到新'].map((option) => (
-              <option key={option} value="由新到舊">
+              <option key={option} value={option}>
                 {option}
               </option>
             ))}
           </select>
         </div>
-        <ToolCard />
+        <ToolCards data={aiWorks?.data ?? []} />
       </div>
       <ul className="ml-auto flex gap-1">
-        {Array(6)
+        {Array(aiWorks?.page.total_pages)
           .fill(0)
           .map((_, index) => (
             <li key={index}>
